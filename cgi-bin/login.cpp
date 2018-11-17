@@ -32,13 +32,13 @@ int main() {
 		cout << "<br>";
 		cout << "<a href='../upLoad.html'>Upload File</a>" << endl;
 		cout << "<br>";
-		cout << "<a href='../cgi-bin/download.cgi'>Download File</a>" << endl;
+		cout << "<a href='../cgi-bin/download.cgi'>Download File and Remove Files</a>" << endl;
 		cout << "<br>";
 	} else if (login.checkPassword(**username,**password) == 2) {
 		cout << "<br>";
 		cout << "<a href='../upLoad.html'>Upload File</a>" << endl;
 		cout << "<br>";
-		cout << "<a href='../cgi-bin/download.cgi'>Download File</a>" << endl;
+		cout << "<a href='../cgi-bin/download.cgi'>Download File and Remove Files</a>" << endl;
 		cout << "<br>";
 	}
 

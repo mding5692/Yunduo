@@ -9,30 +9,31 @@
 
 #include "loginServer.h"
 //include "admin.cpp"
-#include "user.cpp"
+//include "user.cpp"
 
 
 using namespace std;
 
 //call constructor to create admin user
 //admin admin;
-
 // Used to store username and password data
-std::unordered_map<std::string, user> userInfo;
+unordered_map<string,user*> userInfo;
 
 // Current login storage location
 string loginTextFile = "/var/www/html/login.txt";
 
 // Constructor
 loginServer::loginServer(){
+	
 	user u;
-	vector<string> v;
 	ifstream readFile;
 	string line;
 	string separator = ",";
 	readFile.open(loginTextFile);
 	if (readFile.is_open()) {
 		while (!readFile.eof()) {
+		
+			vector<string> v;
 			getline(readFile,line);
 			istringstream ss(line);
 			string token;
@@ -40,11 +41,11 @@ loginServer::loginServer(){
 			while(getline(ss,token,',')){
 				v.push_back(token);
 			}
-			string key = vector[0].c_str();
-			u.setUsername(vector[0].c_str());
-			u.setPassword(vector[1].c_str());
-			u.setPermit(vector[2].c_str());
-			userInfo[key] = u;
+			string key = v[0];
+			u.setUsername(v[0]);
+			u.setPassword(v[1]);
+			u.setPermit(v[2]);
+			userInfo[v[0]] = &u;
 		}
 
 
@@ -79,15 +80,15 @@ int loginServer::checkPassword(std::string inputUName, std::string inputpw){
 		return 3;
 	}
 	//if input password is wrong
-	else if (userInfo[inputUName].getPassword() != inputpw){
+	else if (userInfo[inputUName]->getPassword() != inputpw){
 		std::cout << "Your password is incorrect. \n";
 		return 4;
 
 	}
-	else if (userInfo[inputUName].getPassword() == inputpw){
+	else if (userInfo[inputUName]->getPassword() == inputpw){
 		std::cout << "Welcome back! \n" << std::endl;
 		//check if the user is admin or normal user
-		if (userInfo[inputUName].getPermit = "5" ){
+		if (userInfo[inputUName]->getPermit() == "5" ){
 			std::cout << inputUName << std::endl;
 			return 1;
 			
@@ -104,11 +105,11 @@ int loginServer::checkPassword(std::string inputUName, std::string inputpw){
 void loginServer::addUser(std::string name, std::string pw, std::string pmt){
 	if (userInfo.find(name) == userInfo.end()) {
 		// Adds to unordered map
-		user new;
-		new.setUsername(name);
-		new.setPassword(pw);
-		new.setPermit(pmt);
-		userInfo[name] = new;
+		user newUser;
+		newUser.setUsername(name);
+		newUser.setPassword(pw);
+		newUser.setPermit(pmt);
+		userInfo[name] = &newUser;
 
 		// Adds to text file storing user credentials
 		ofstream outputFile;

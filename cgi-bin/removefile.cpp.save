@@ -1,4 +1,4 @@
-#include <iostream>
+include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
@@ -30,7 +30,7 @@ int main() {
 
                         cout << "<br>";
                         string fileName  = "..//saveFile/" + dirName;
-			cout << "<button> remove file </button>";
+                        cout << "<a href=' " <<remove(fileName.c_str()) << "'" <<  " download='download'>" << ent->d_name << "</a>" << endl;
                         cout << "<br>";
 
                 }

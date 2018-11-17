@@ -6,12 +6,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <fstream>
 #include <dirent.h>
 
 #include "file.cpp"
-
-const std::string CREATING_FOLDER = "creating_folder";
-const std::string ALREADY_CREATED = "already_created_folder";
 
 class Folder {
 	public:

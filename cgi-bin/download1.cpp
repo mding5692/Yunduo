@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <fstream>
 #include <dirent.h>
+#include <unistd.h>
 
 using namespace std;
 
@@ -31,7 +32,7 @@ int main() {
 			cout << "<br>";
 			string fileName  = "..//saveFile/" + dirName;
 			cout << "<a href=' " <<fileName.c_str() << "'" <<  " download='download'>" << ent->d_name << "</a>" << endl;
-			cout << "<button> remove file </button>";
+			cout << "<button onclick = " << remove(fileName.c_str()) << " > remove file </button>";
 			cout << "<br>";
 		
 		}

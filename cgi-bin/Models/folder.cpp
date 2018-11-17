@@ -4,6 +4,8 @@ using namespace std;
 
 // Constants
 const string FOLDER_ROOT_ADDR = "/var/www/html/saveFile/";
+const string CREATING_FOLDER = "creating_folder";
+const string ALREADY_CREATED = "already_created_folder";
 
 // Folder class constructor, grabs files from the given address
 Folder::Folder(string foldername, string folderAddr, string state) {
@@ -12,8 +14,20 @@ Folder::Folder(string foldername, string folderAddr, string state) {
 	folderAddress = folderAddr;
 	fState = state;
 
+	// Sets variables for reading folder
+	DIR *dir;
+	struct dirent *ent;	
+
+	// For when the folder is already created
+	// and we want to access it
 	if (state != CREATING_FOLDER) {
-		
+		string absFolderAddr = FOLDER_ROOT_ADDR + folderAddr;
+
+		if ((dir = opendir(absFolderAddr)) != NULL) {
+			while ((ent = readdir(dir)) != NULL) {
+				
+			}
+		}
 	}
 }
 
