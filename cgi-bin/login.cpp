@@ -23,8 +23,8 @@ int main() {
 	form_iterator password = formData.getElement("password");
 
 	cout << "<br>";
-
-	if (login.checkPassword(**username, **password) == 1) {
+	while(true){
+	if (login.checkPassword(**username, **password) == 5) {
 		cout << "<br>";
 		cout << "<a href='../addUser.html'>Add user</a>" << endl;
 		cout << "<br>";
@@ -34,14 +34,33 @@ int main() {
 		cout << "<br>";
 		cout << "<a href='../cgi-bin/download.cgi'>Download File and Remove Files</a>" << endl;
 		cout << "<br>";
-	} else if (login.checkPassword(**username,**password) == 2) {
+		break;
+	} 
+	if (login.checkPassword(**username,**password) == 1) {
+		cout << "<br>";
+		cout << "<a href='../upLoad.html'>Upload File</a>" << endl;
+		cout << "<br>";
+		cout << "<a href='../cgi-bin/download.cgi'>Download File</a>" << endl;
+		cout << "<br>";
+		break;
+	}
+	if (login.checkPassword(**username,**password) == 2){
 		cout << "<br>";
 		cout << "<a href='../upLoad.html'>Upload File</a>" << endl;
 		cout << "<br>";
 		cout << "<a href='../cgi-bin/download.cgi'>Download File and Remove Files</a>" << endl;
-		cout << "<br>";
+		break;
 	}
-
+	if (login.checkPassword(**username,**password) == 0) {
+		cout << "<br>";
+		cout << "<a href='../cgi-bin/download.cgi'>Download File</a>" << endl;
+		break;
+		
+	}
+	//if (login.checkPassword(**username,**password) == 3) break;
+	//if (login.checkPassword(**username,**password) == 4) break;
+	else break;
+}
 	cout << "<br />\n";
 	cout << "</body>\n";
 	cout << "</html>\n";

@@ -25,8 +25,9 @@ int main(){
 
 	form_iterator username = formData.getElement("user_name");
 	form_iterator password = formData.getElement("pass_word");
+	form_iterator permission = formData.getElement("user_permit");
 
-	login.addUser(**username, **password);
+	login.addUser(**username, **password, **permission);
 
 	cout << "</body>";
 	cout << "</html>";

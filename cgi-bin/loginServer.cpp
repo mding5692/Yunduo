@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <sstream>
 #include <vector>
-
 #include "loginServer.h"
 //include "admin.cpp"
 //include "user.cpp"
@@ -17,85 +16,141 @@ using namespace std;
 //call constructor to create admin user
 //admin admin;
 // Used to store username and password data
-unordered_map<string,user*> userInfo;
+unordered_map<string,string> userInfo;
+unordered_map<string,string> userPermission;
 
 // Current login storage location
 string loginTextFile = "/var/www/html/login.txt";
 
+string loginPermissionFile = "/var/www/html/permission.txt";
+
 // Constructor
 loginServer::loginServer(){
-	
-	user u;
 	ifstream readFile;
+	ifstream readPermission;
 	string line;
+	string pmt;
 	string separator = ",";
 	readFile.open(loginTextFile);
+	readPermission.open(loginPermissionFile);
 	if (readFile.is_open()) {
-		while (!readFile.eof()) {
-		
-			vector<string> v;
-			getline(readFile,line);
-			istringstream ss(line);
-			string token;
-
-			while(getline(ss,token,',')){
-				v.push_back(token);
-			}
-			string key = v[0];
-			u.setUsername(v[0]);
-			u.setPassword(v[1]);
-			u.setPermit(v[2]);
-			userInfo[v[0]] = &u;
-		}
-
-
-
-/*
+		while(!readFile.eof()){
 			size_t pos = 0;
-			getline(readFile, line);
-			while ((pos = line.find(separator)) != std::string::npos) {
-
-				string key = line.substr(0, pos);
-				line.erase(0, pos + separator.length());	
-
+			getline(readFile,line);
+			while((pos = line.find(separator)) != std::string::npos){
+				string key = line.substr(0,pos);
+				line.erase(0,pos + separator.length());
 				userInfo[key] = line;
-*/
-			
-		
+			}
+
+			/*	for(int i = 0;i < v.size();i++){
+					cout << v[i] << endl;
+				}
+					
+
+
+			//	user u;
+				//vector<string> v;
+				istringstream ss(line);
+				string token;
+				while(getline(ss,token,',')){
+					v.push_back(token);
+				}
+				string key = v[0];
+				pwd = v[1];
+				pmt = v[2];
+				user u(key,pwd,pmt);
+				//u.setUsername(key);
+				//cout << v[0] << "\n";
+				//u.setPassword(pwd);
+			//	cout << v[1] << "\n";
+				//u.setPermit(pmt);
+			//	cout << v[2] << "\n";
+				pair<string,user> temp (key,u);
+				//pair<unordered_map<string,user>::iterator,bool>
+				userInfo.insert(temp); 
+				//userInfo[key]->getPassword();
+				v.clear();
+				//cout << userInfo[v[3]]->getPassword() << endl;*/
+		}		
 		readFile.close();
-	} else {
+	}
+	if(readPermission.is_open()){	
+		while(!readPermission.eof()){
+			size_t position = 0;
+			getline(readPermission,pmt);
+			while((position = pmt.find(separator)) != string::npos){
+				string key = pmt.substr(0,position);
+				pmt.erase(0,position + separator.length());
+				userPermission[key] = pmt;
+			}
+		}
+		readPermission.close();
+	}
+
+	else if(!readFile.is_open() || !readPermission.is_open()){
 		cout << "Unable to get login info from server";
 	}
+	
+	
 };
 
 // Destructor
 loginServer::~loginServer(){};
 
+string loginServer::checkPermission(string inputn){
+	string permit = "";
+	if(userPermission.find(inputn) == userPermission.end()){
+		cout << "User was not given permission" << endl;
+	}
+	else{
+		permit = userPermission[inputn];
+	}
+	return permit;
+}
+
+
 // Checks username and password
 int loginServer::checkPassword(std::string inputUName, std::string inputpw){
-
+	//user check = userInfo[inputUName];
+	//cout << check.getPassword();
 	//if user does not exist
 	if (userInfo.find(inputUName) == userInfo.end()){
-			std::cout << "User name does not exist. \n";
+		std::cout << "User name does not exist.";
 		return 3;
 	}
 	//if input password is wrong
-	else if (userInfo[inputUName]->getPassword() != inputpw){
-		std::cout << "Your password is incorrect. \n";
+	else if (userInfo[inputUName] != inputpw){
+		//cout << userInfo[inputUName]->getPassword();
+		cout << "Your password is incorrect. \n";
 		return 4;
 
 	}
-	else if (userInfo[inputUName]->getPassword() == inputpw){
-		std::cout << "Welcome back! \n" << std::endl;
+	//else cout << "good" << endl;
+	else if (userInfo[inputUName] == inputpw){
+		cout << "Welcome back!" << endl;
+		string pmt = checkPermission(inputUName);
 		//check if the user is admin or normal user
-		if (userInfo[inputUName]->getPermit() == "5" ){
+		if (pmt == "5" ){
 			std::cout << inputUName << std::endl;
-			return 1;
+			return 5;
 			
-		} else {
+		} 
+		else if (pmt == "1"){
 			std::cout << inputUName <<std::endl ;
-			return 2;	
+			return 1;	
 		}
+		else if (pmt == "2"){
+			std::cout << inputUName << std::endl;
+			return 2;
+		}
+		else if (pmt == "0"){
+			cout << inputUName << endl;
+			return 0;
+		}
+
+		
+
 	}
 	return 0;
 			
@@ -105,17 +160,21 @@ int loginServer::checkPassword(std::string inputUName, std::string inputpw){
 void loginServer::addUser(std::string name, std::string pw, std::string pmt){
 	if (userInfo.find(name) == userInfo.end()) {
 		// Adds to unordered map
-		user newUser;
-		newUser.setUsername(name);
-		newUser.setPassword(pw);
-		newUser.setPermit(pmt);
-		userInfo[name] = &newUser;
-
+		//user newUser(name,pw,pmt);
+		//newUser.setUsername(name);
+	//	newUser.setPassword(pw);
+	//	newUser.setPermit(pmt);
+		userInfo[name] = pw;
+		userPermission[name] = pmt;
+		
 		// Adds to text file storing user credentials
 		ofstream outputFile;
+		ofstream outputPermission;
 		outputFile.open(loginTextFile, ios::out | ios::app);
-		outputFile << name << "," << pw << "," << pmt << endl;
-
+		outputFile << name << "," << pw << endl;
+		outputPermission.open(loginPermissionFile,ios::out | ios::app);
+		outputPermission << name << "," << pmt << endl;
+		
 		cout << "User added" << endl;
 	} else {
 		cout << "User already added before" << endl;
@@ -127,7 +186,8 @@ void loginServer::addUser(std::string name, std::string pw, std::string pmt){
 void loginServer::removeUser(std::string name){
 	if (userInfo.find(name) == userInfo.end()) {
 		cout << "User doesn't exist." << endl;
-	} else {
+	} 
+	else {
 		
 		// Deleting from text file holding user credentials
 		string line;
@@ -152,8 +212,31 @@ void loginServer::removeUser(std::string name){
 		system("chmod 777 /var/www/html/temp.txt");
 		rename("/var/www/html/temp.txt", "/var/www/html/login.txt");
 
+		//Deleting from text file holding user permissions
+		string pmt;
+		ifstream pfin;
+
+		pfin.open(loginPermissionFile);
+		ofstream tempPermission;
+		tempPermission.open("/var/www/html/tempPermission.txt");
+
+		//Only saves lines of the text file that don't match the name we're deleting
+		while (getline(pfin, pmt)){
+			if (pmt.find(name) == string::npos){
+				tempPermission << pmt << endl;
+			}
+		}
+		tempPermission.close();
+		pfin.close();
+		
+		//reames tempPermission text as actual permission file
+		remove("/var/www/html/permission.txt");
+		system("chmod 777 /var/www/html/tempPermission.txt");
+		rename("/var/www/html/tempPermission.txt", "/var/www/html/permission.txt");
+
 		// Removes from unordered map
 		userInfo.erase(name);
+		userPermission.erase(name);
 		cout << "User removed successfully" << endl;
 	}
 

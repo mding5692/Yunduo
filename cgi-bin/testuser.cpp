@@ -2,9 +2,11 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
-#include "user.cpp"
+//include "user.cpp"
+#include "loginServer.cpp"
 
 int main(){
+	/*
 	user u;
 	unordered_map<std::string,user*> test;
 	//user.setUsername("a");
@@ -23,6 +25,12 @@ int main(){
 	//cout << user.getUsername() << "\n" << user.getPassword() << "\n" << user.getPermit() << "\n" << endl;
 	user* b;
 	b = test["abc"];
-	cout << b->getUsername();
-	
+	cout << b->getUsername();*/
+
+	loginServer log;
+	log.checkPassword("guest","123456");
+	//cout << "\n" << "next abcd test" << "\n";
+	log.checkPassword("admin","abcdef");
+	//cout << "\n" << "next guest test";
+	//log.checkPassword("guest","123456");
 }

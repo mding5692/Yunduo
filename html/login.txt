@@ -1,2 +1,2 @@
-admin,abcdef,5
-guest,123456,0
+admin,abcdef
+guest,123456

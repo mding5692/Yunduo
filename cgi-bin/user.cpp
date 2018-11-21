@@ -5,28 +5,39 @@
 
 using namespace std;
 
-string name;
+string username;
 string password;
 //permission details metioned below
 string permit;
 
 //constructor
-user::user(){
-	name = "";
-	password = "";
-	permit = "0";
+user::user(){}
+
+//parameter constructor
+user::user(string uname,string pwd, string pmt){
+	this->username = uname;
+	this->password = pwd;
+	this->permit = pmt;
 }
 
 //destructor
 user::~user(){}
 
+bool user::operator== (const user& rhs){
+	return (username == rhs.username);
+	}
+
+bool user::operator!= (const user& rhs){
+	return (username != rhs.username);
+}
+
 string user::getUsername(){
-	return name;
+	return username;
 }
 
 //setter method for the username
 void user::setUsername(string uname){
-	name = uname;
+	this->username = uname;
 }
 
 //getter method for the password
@@ -36,7 +47,7 @@ string user::getPassword(){
 
 //setter method for the password
 void user::setPassword(string pwd){
-	password = pwd;
+	this->password = pwd;
 }
 
 /*permission:
@@ -53,7 +64,7 @@ string user::getPermit(){
 
 //setter method for permission
 void user::setPermit(string pmt){
-	permit = pmt;
+	this->permit = pmt;
 }
 
 

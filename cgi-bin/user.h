@@ -8,7 +8,10 @@ class user{
 		std::string permit;
 	public:	
 		user();
-		~user();	
+		user(std::string uname,std::string pwd,std::string pmt);
+		~user();
+		bool operator== (const user& rhs);
+		bool operator!= (const user& rhs);	
 		std::string getUsername();
 		void setUsername(std::string uname);
 		std::string getPassword();
