@@ -7,19 +7,11 @@
 #include <iostream>
 #include <dirent.h>
 
+#include "storable.h"
 
-class File {
+class File : public Storable {
 	public:
-		File(std::string filename, std::string filetype, std::string fileAddress);
-		~File();
-		std::string to_string();
-		std::string getFilename();
-		std::string getFiletype();
-		std::string getAddress();
-	private:
-		std::string fname;
-		std::string ftype;
-		std::string faddr;
+		File(const std::string& name, std::string& address);
 };
 
 #endif

@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "__hash_table": "cpp",
+        "unordered_map": "cpp",
+        "__split_buffer": "cpp",
+        "bitset": "cpp",
+        "hash_map": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp",
+        "memory": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "vector": "cpp",
+        "hashtable": "cpp",
+        "__config": "cpp",
+        "__nullptr": "cpp",
+        "cstddef": "cpp",
+        "exception": "cpp",
+        "new": "cpp",
+        "stdexcept": "cpp",
+        "type_traits": "cpp",
+        "typeinfo": "cpp",
+        "algorithm": "cpp",
+        "utility": "cpp",
+        "iostream": "cpp"
+    }
+}
