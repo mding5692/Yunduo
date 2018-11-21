@@ -30,6 +30,19 @@ int main() {
 
                         cout << "<br>";
                         string fileName  = "..//saveFile/" + dirName;
+
+                        //-------------------------
+                        if(remove(fileName)==0){
+                          cout<<"remove successfully"<<endl;
+                        }
+                        else{
+                          cout<<"remove fail"<<endl;
+                        }
+
+
+                        //-------------------------
+
+
 			cout << "<button> remove file </button>";
                         cout << "<br>";
 
@@ -43,4 +56,3 @@ int main() {
 
         return 0;
 }
-
