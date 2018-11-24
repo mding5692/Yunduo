@@ -16,3 +16,4 @@ void Folder::append(Storable* newStorable) {
 vector<Storable*> Folder::getStoredFiles() {
 	return this->_storedContent;
 }
+

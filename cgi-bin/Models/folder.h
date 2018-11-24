@@ -11,7 +11,6 @@
 #include <iomanip>
 
 #include "storable.h"
-#include "file.cpp"
 
 class Folder : public Storable {
 	public:
