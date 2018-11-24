@@ -21,36 +21,36 @@ int main() {
 	form_iterator password = formData.getElement("password");
 
 	cout << "<br>";
-	while(true){
-		int cout = 0;
-		cout = login.checkPassword(**username, **password);
-		switch(cout){
+	//while(true){
+		int num = 0;
+		num = login.checkPassword(**username, **password);
+		switch(num){
 			case 5:
-				cout <<  "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
-			break;
+				cout << "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
+				break;
 
 			case 2:
 				cout << "<a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
-			break;
+				break;
 
 			case 1:
 				cout << "<a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
-			break;
+				break;
 
 			case 0:
 				cout << "<a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
-			break;
+				break;
 
 			case 3:
-			break;
+				break;
 
 			case 4:
-			break;
-		}
-	//if (login.checkPassword(**username, **password) == 5) {
-	//	cout <<  "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
-	//	break;
-	//} 
+				break;
+		// }
+	// if (login.checkPassword(**username, **password) == 5) {
+	// 	cout <<  "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
+	// 	break;
+	// } 
 	// if (login.checkPassword(**username,**password) == 1 || login.checkPassword(**username,**password) == 2) {
 	// 	cout << "<a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
 	// 	break;
@@ -60,9 +60,9 @@ int main() {
 	// 	break;
 		
 	// }
-	//if (login.checkPassword(**username,**password) == 3) break;
-	//if (login.checkPassword(**username,**password) == 4) break;
-}
+	// if (login.checkPassword(**username,**password) == 3) break;
+	// if (login.checkPassword(**username,**password) == 4) break;
+
 	cout << "</nav> </aside> <ul class='file-list'> <li class='file'> <div> <a class='file-name' href='../cgi-bin/download.cgi'>Your folder</a> <p class='file-category'>Media</p> <div class='stars'> <i class='fa fa-star'></i> <i class='fa fa-star'></i> <i class='fa fa-star'></i> </div> </div> <p class='File-time'>11/2/2018<br/>London<br/> ON</p> <div class='fav-link'> <i class='fa fa-check-circle-o'></i> </div> </li> </ul> </div> </section> <footer> <p class='title'>What We Do</p> <p>Help you control the best cloud around.</p> <ul> <li> <p><i class='fa fa-globe fa-2x'></i></p> <p>London office, ON</p> </li> <li> <p><i class='fa fa-envelope-o fa-2x'></i></p> <p>info@uwo.com</p> </li> <li> <p><i class='fa fa-phone-square fa-2x'></i></p> <p>+1 123 234 567</p> </li> </ul> </footer> </body> </html>" << endl;
 
 	return 0;
