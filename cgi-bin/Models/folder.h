@@ -17,7 +17,6 @@ class Folder : public Storable {
 	public:
 		Folder(const std::string& name, std::string& address);
 		void append(Storable* newStorable);
-		size_type getStorageCount();
 		std::vector<Storable*> getStoredFiles();
 	private:
 		std::vector<Storable*> _storedContent;

@@ -19,8 +19,8 @@ class FileServer {
 	public:
 		FileServer();
 		~FileServer();
-		void openDir(std::string address);
-		void createDir(std::string address);
+		void openDir(std::string dirName, std::string address);
+		void createDir(std::string dirName, std::string address);
 		void removeFile(std::string fileAddress);
 		void removeDir(std::string dirAddress);
 		void uploadFile(cgicc::const_file_iterator file);
