@@ -9,6 +9,8 @@
 
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
+#include <cgicc/HTTPHTMLHeader.h>
+#include <cgicc/HTMLClasses.h>
 
 #include "../Models/storable.h"
 #include "../Models/folder.cpp"
@@ -17,15 +19,16 @@ class FileServer {
 	public:
 		FileServer();
 		~FileServer();
-		void openDir(std::string dirName);
-		void removeFile(std::string fileName);
-		void removeDir(std::string dirName);
-		bool uploadFile(cgicc::const_file_iterator);
-		bool loadFilesForDownload();
+		void openDir(std::string address);
+		void createDir(std::string address);
+		void removeFile(std::string fileAddress);
+		void removeDir(std::string dirAddress);
+		void uploadFile(cgicc::const_file_iterator file);
+		void loadFilesForDownload();
 	private:
 		Storable* _root;
 
 		// Stores files already opened so can open them
 		// And can display one overall opened file tree UI
-		std::unordered_map<std::string, std::string> alreadyOpenedFolderNames;
+		std::unordered_map<std::string, std::string> _alreadyOpenedFolderNames;
 };
