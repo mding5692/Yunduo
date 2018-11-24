@@ -16,14 +16,14 @@ FileServer::FileServer()
 	this->_root = new Folder("", FOLDER_ROOT_ADDR);
 	// Opens the directories that already have been previously opened
 	// in this session
-	this->_alreadyOpenedFolderNames = openedFolders;
+	// this->_alreadyOpenedFolderNames = openedFolders;
 
 	// System variables
 	DIR *dir;
 	struct dirent *ent;
 	struct stat s;
 
-	if ((dir = opendir(FOLDER_ROOT_ADDR)) != NULL {
+	if ((dir = opendir(FOLDER_ROOT_ADDR)) != NULL) {
 		while ((ent = readdir(dir)) != NULL)
 		{
 			string fileName = string(ent->d_name);
