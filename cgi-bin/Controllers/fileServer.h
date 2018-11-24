@@ -13,6 +13,7 @@
 #include <cgicc/HTMLClasses.h>
 
 #include "../Models/storable.h"
+#include "../Models/file.cpp"
 #include "../Models/folder.cpp"
 
 class FileServer {

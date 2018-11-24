@@ -14,7 +14,7 @@ FileServer::FileServer()
 {
 	// Initializes root directory
 	string rootName = "";
-	this->_root = new Folder(&rootName, &FOLDER_ROOT_ADDR);
+	this->_root = new Folder(rootName, FOLDER_ROOT_ADDR);
 	// Opens the directories that already have been previously opened
 	// in this session
 	// this->_alreadyOpenedFolderNames = openedFolders;
