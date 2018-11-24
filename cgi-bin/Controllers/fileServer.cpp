@@ -13,7 +13,8 @@ const string OPENED_FOLDERS = "/var/www/html/folder.txt";
 FileServer::FileServer()
 {
 	// Initializes root directory
-	this->_root = new Folder("", &FOLDER_ROOT_ADDR);
+	string rootName = "";
+	this->_root = new Folder(&rootName, &FOLDER_ROOT_ADDR);
 	// Opens the directories that already have been previously opened
 	// in this session
 	// this->_alreadyOpenedFolderNames = openedFolders;
