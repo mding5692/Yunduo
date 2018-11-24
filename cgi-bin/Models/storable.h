@@ -5,7 +5,7 @@
 
 class Storable {
     public:
-        Storable(const std::string& name, std::string &address) : _name(name), _address(address) {
+        Storable(const std::string& name, const std::string &address) : _name(name), _address(address) {
 
         }
         virtual ~Storable();
