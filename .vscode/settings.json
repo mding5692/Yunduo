@@ -22,6 +22,8 @@
         "typeinfo": "cpp",
         "algorithm": "cpp",
         "utility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "__locale": "cpp",
+        "__string": "cpp"
     }
 }

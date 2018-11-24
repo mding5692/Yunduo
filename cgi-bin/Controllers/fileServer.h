@@ -4,10 +4,13 @@
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <unordered_map>
+#include <sys/stat.h>
 
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 
+#include "../Models/storable.h"
 #include "../Models/folder.cpp"
 
 class FileServer {
@@ -20,7 +23,7 @@ class FileServer {
 		bool uploadFile(cgicc::const_file_iterator);
 		bool loadFilesForDownload();
 	private:
-		Folder root("", "/var/www/html/saveFile/");
+		Storable* _root;
 
 		// Stores files already opened so can open them
 		// And can display one overall opened file tree UI

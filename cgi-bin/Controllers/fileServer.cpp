@@ -1,6 +1,3 @@
-#include <unordered_map>
-#include <sys/stat.h>
-#include "../Models/folder.cpp"
 #include "fileServer.h"
 
 using namespace std;
@@ -13,6 +10,8 @@ const string ALREADY_CREATED = "already_created_folder";
 // FileServer class constructor
 FileServer::FileServer()
 {
+	// Initializes root directory
+	this->_root = new Folder("", FOLDER_ROOT_ADDR);
 
 	// System variables
 	DIR *dir;
@@ -36,14 +35,14 @@ FileServer::FileServer()
 				if (s.st_mode & S_IFDIR)
 				{
 					//it's a directory
-					
-					folders.push_back(newFolder);
+					Storable* newFolder = new Folder(fileName, filePath);
+					this->_root.append(newFolder);
 				}
 				else if (s.st_mode & S_IFREG)
 				{
 					//it's a file
-					File newFile = File(fileName, filePath);
-					files.push_back(newFile);
+					Storabe* newFile = new File(fileName, filePath);
+					this->_root.append(newFile);
 				}
 				else
 				{
