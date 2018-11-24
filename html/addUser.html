@@ -310,16 +310,18 @@ footer ul li {
 
     <div class="main-section">
       <div id="login-form">
-	    <label for="username">Username:</label>
-	    <input id="username" name="username" type="text">
-	    <label for="password">Password:</label>
-	    <input id="password" name="password" type="password">
-        <label for="permission">Permission:</label>
-	    <input id="password" name="password" type="password">
-      <p>0 for download only; </p>
-      <p> 1 for upload and download; </p>
-      <p> 2 for upload download and remove files</p>
-	    <button id="login-btn">Add This User</button>
+      <form action = "/cgi-bin/addUser.cgi" method ="get">
+  	    <label for="username">Username:</label>
+  	    <input id="username" name="username" type="text">
+  	    <label for="password">Password:</label>
+  	    <input id="password" name="password" type="password">
+          <label for="permission">Permission:</label>
+  	    <input id="password" name="password" type="password">
+        <p>0 for download only; </p>
+        <p> 1 for upload and download; </p>
+        <p> 2 for upload download and remove files</p>
+  	    <button id="login-btn">Add This User</button>
+      </form>
 	    <p id="login-error"></p>
 	</div>
   </section>
