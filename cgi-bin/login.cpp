@@ -26,15 +26,15 @@ int main() {
 		
 	switch(pmt){
 		case 5: {
-		cout <<  "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
+		cout <<  "<a href='../addUser.html' id='nearby-btn' class='main-nav-btn active' onclick=""> <i class='fa fa-upload'></i> Add user</a><a href='../removeUser.html' id='fav-btn' class='main-nav-btn' onclick=""> <i class='fa fa-download'></i> Remove User </a> <a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-arrow-circle-up'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-arrow-circle-down'></i> Download file </a>" << endl;
 		break;
 		} 
 		case 1: {
-		cout << "<a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-eraser'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
+		cout << "<a href='../upLoad.html' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-arrow-circle-up'></i> Upload file </a> <a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-arrow-circle-down'></i> Download file </a>" << endl;
 		break;
 		}
 		case 0: {
-		cout << "<a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-question-circle'></i> Download file </a>" << endl;
+		cout << "<a href='../cgi-bin/download.cgi' id='recommend-btn' class='main-nav-btn' onclick=""> <i class='fa fa-arrow-circle-down'></i> Download file </a>" << endl;
 		break;
 		}
 		case 3: break;
