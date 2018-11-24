@@ -21,6 +21,7 @@ int main() {
 
 	cout << "<p><b>Below are the files currently in your directory</b></p>";
 	cout << "<p> Download files by pressing on them, click the button beside it to delete them </p>";
+        cout<< "<META HTTP-EQUIV='refresh' CONTENT='10'>";
 
 	if ((dir = opendir("/var/www/html/saveFile")) != NULL) {
 		while ((ent = readdir(dir)) != NULL) {
@@ -33,8 +34,9 @@ int main() {
 
 			cout << "<br>";
 			string fileName  = "..//saveFile/" + dirName;
-			cout << "<a href=' " <<fileName.c_str() << "'" <<  " download='download'>" << ent->d_name << "</a>" << endl;
-			cout << "<button> remove file </button>";
+			string fullfileName = "/var/www/html/saveFile/" + dirName;
+			cout << "<a href=' " << fileName.c_str() << "'" <<  " download='download'>" << ent->d_name << "</a>" << endl;
+			cout << "<form action='removefile.cgi' target='_blank'> <input type = 'hidden' name = 'path' value = '" <<fullfileName.c_str() << "'> <input type='submit' value='delete'></form>";
 			cout << "<br>";
 		
 		}

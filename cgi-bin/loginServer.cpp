@@ -42,6 +42,36 @@ loginServer::loginServer(){
 				line.erase(0,pos + separator.length());
 				userInfo[key] = line;
 			}
+
+			/*	for(int i = 0;i < v.size();i++){
+					cout << v[i] << endl;
+				}
+					
+
+
+			//	user u;
+				//vector<string> v;
+				istringstream ss(line);
+				string token;
+				while(getline(ss,token,',')){
+					v.push_back(token);
+				}
+				string key = v[0];
+				pwd = v[1];
+				pmt = v[2];
+				user u(key,pwd,pmt);
+				//u.setUsername(key);
+				//cout << v[0] << "\n";
+				//u.setPassword(pwd);
+			//	cout << v[1] << "\n";
+				//u.setPermit(pmt);
+			//	cout << v[2] << "\n";
+				pair<string,user> temp (key,u);
+				//pair<unordered_map<string,user>::iterator,bool>
+				userInfo.insert(temp); 
+				//userInfo[key]->getPassword();
+				v.clear();
+				//cout << userInfo[v[3]]->getPassword() << endl;*/
 		}		
 		readFile.close();
 	}
@@ -82,6 +112,8 @@ string loginServer::checkPermission(string inputn){
 
 // Checks username and password
 int loginServer::checkPassword(std::string inputUName, std::string inputpw){
+	//user check = userInfo[inputUName];
+	//cout << check.getPassword();
 	//if user does not exist
 	if (userInfo.find(inputUName) == userInfo.end()){
 		std::cout << "User name does not exist.";
