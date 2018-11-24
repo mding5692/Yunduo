@@ -13,7 +13,7 @@ const string OPENED_FOLDERS = "/var/www/html/folder.txt";
 FileServer::FileServer()
 {
 	// Initializes root directory
-	this->_root = new Folder("", FOLDER_ROOT_ADDR);
+	this->_root = new Folder("", &FOLDER_ROOT_ADDR);
 	// Opens the directories that already have been previously opened
 	// in this session
 	// this->_alreadyOpenedFolderNames = openedFolders;
@@ -23,7 +23,7 @@ FileServer::FileServer()
 	struct dirent *ent;
 	struct stat s;
 
-	if ((dir = opendir(FOLDER_ROOT_ADDR)) != NULL) {
+	if ((dir = opendir(FOLDER_ROOT_ADDR.c_str())) != NULL) {
 		while ((ent = readdir(dir)) != NULL)
 		{
 			string fileName = string(ent->d_name);
@@ -34,22 +34,22 @@ FileServer::FileServer()
 			}
 
 			string filePath = FOLDER_ROOT_ADDR + fileName;
-			if (stat(filePath, &s) == 0)
+			if (stat(filePath.c_str(), &s) == 0)
 			{
 
 				if (s.st_mode & S_IFDIR)
 				{
 					//it's a directory
 					Storable* newFolder = new Folder(fileName, filePath);
-					this->_root.append(newFolder);
-					cout << newFolder.getName << endl;
+					this->_root->append(newFolder);
+					cout << newFolder->getName() << endl;
 				}
 				else if (s.st_mode & S_IFREG)
 				{
 					//it's a file
-					Storabe* newFile = new File(fileName, filePath);
-					this->_root.append(newFile);
-					cout << newFile.getName << endl;
+					Storable* newFile = new File(fileName, filePath);
+					this->_root->append(newFile);
+					cout << newFile->getName << endl;
 				}
 				else
 				{
