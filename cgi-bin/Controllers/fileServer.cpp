@@ -49,7 +49,7 @@ FileServer::FileServer()
 					//it's a file
 					Storable* newFile = new File(fileName, filePath);
 					this->_root->append(newFile);
-					cout << newFile->getName << endl;
+					cout << newFile->getName() << endl;
 				}
 				else
 				{

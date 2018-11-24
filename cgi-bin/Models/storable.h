@@ -19,11 +19,11 @@ class Storable {
 
         }
 
-        virtual const std::string& getName() const {
+        virtual const std::string getName() const {
             return this->_name;
         }
 
-        virtual const std::string& getAddress() const {
+        virtual const std::string getAddress() const {
             return this->_address;
         }
 

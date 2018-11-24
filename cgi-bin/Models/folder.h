@@ -15,7 +15,7 @@
 
 class Folder : public Storable {
 	public:
-		Folder(const std::string& name, std::string& address);
+		Folder(const std::string& name, const std::string& address);
 		void append(Storable* newStorable);
 		std::vector<Storable*> getStoredFiles();
 	private:

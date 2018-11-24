@@ -11,7 +11,7 @@
 
 class File : public Storable {
 	public:
-		File(const std::string& name, std::string& address);
+		File(const std::string& name, const std::string& address);
 };
 
 #endif
