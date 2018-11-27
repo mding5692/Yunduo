@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head></head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description" content="Send anonymous dm and wait for their response." />
+
+<!-- Open Graph data -->
+<meta property="og:title" content="DM" />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="https://thedm.app" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="Send an anonymous message and wait for their response." />
+<meta property="og:site_name" content="DM app" />
+
+<title>DM</title>
+
+<!-- Styles -->
+<link href="https://flizle.com/css/animate.css" rel="stylesheet">
+<link href="profile.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
+<script src="https://use.fontawesome.com/0eed246e51.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://flizle.com/js/main.js?567567"></script>
+<script type="text/javascript" src="https://flizle.com/js/campaign.js?7876765"></script>
+</head>
+
+<body>
+    <div class="public_message">
+        <header id="top">
+            <div class="inside max-width">
+                <a href="/"><img class="logo" src="logo.png" /></a>
+            </div>
+        </header>
+
+        <div id="success">
+            <div class="inside">
+                <div id="success_inside" style="display:none">
+                    <div id="success_top">
+                        <h3>Message Sent</h3>
+                        <p>Download the DM app to see their repsonse.</p>
+                        <div class="download_buttons">
+                            <a class="apple download" href="https://itunes.apple.com/us/app/honest/id1270335888?ls=1&mt=8">
+                                <img src="https://uploads-ssl.webflow.com/5a0fa4d694280800016d9302/5a0fab5ede714b000137a00c_app-store.svg">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="subscribe">
+                        <h3>See Spice Rat's reply</h3>
+                        <p>
+                            When Spice Rat replies we'll email you a link to view it. Don't worry, subscriptions are
+                            completely anonymous.
+                        </p>
+                        <div class="sub_error"></div>
+                        <form action="" method="POST" id="sub_to_question">
+                            <input type="hidden" name="_token" value="D4aGLxcBg6Z1iHkMAthXAeXoaWoIZwwStAqqUl0t">
+                            <input type="text" name="email" id="sub_email" placeholder="Your email address...">
+                            <input type="hidden" name="question_id" id="question_id" value="0" />
+                            <input type="submit" value="Notify Me" id="sub_sub">
+                        </form>
+                    </div>
+                </div>
+                <div id="sub_success">
+                    <h3>Subscribed</h3>
+                    <b>Awesome, you'll be emailed when they reply.</b><br /><br />In the meantime, why not download
+                    our app and setup your own profile to receive anonymous dms!
+                    <div class="download_buttons">
+                        <a class="apple download" href="https://itunes.apple.com/us/app/honest/id1270335888?ls=1&mt=8">
+                            <img src="/marketing/images/apple.svg">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="user_container">
+            <div class="user">
+                <div class="profile_picture_container">
+                    <div class="profile_picture" style="background-image:url('https://s3-eu-west-1.amazonaws.com/flizle/profilepictures/1534655167.jpg')">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1>Spice Rat</h1>
+                    <div class="url sharer">flizle.com/spice-rat <i class="fa fa-share"></i></div>
+
+                    <div class="userBio">
+                        Pls be nice<br />
+                        <br />
+                        [ig: spiicerat] </div>
+                </div>
+
+                <div class="love-stats flex justify-content-center align-items-center">
+                    <div class="item grow-1 love">
+                        <i class="fa fa-heart-o"></i> 328 </div>
+                    <div class="item grow-1 messages">
+                        <i class="fa fa-envelope-o"></i> 2,002
+                    </div>
+                </div>
+
+                <div class="error">
+                </div>
+                <form action="" method="post" id="sendMsg">
+                    <input type="hidden" name="_token" value="D4aGLxcBg6Z1iHkMAthXAeXoaWoIZwwStAqqUl0t">
+                    <textarea name="message" id="message" class="txtarea" placeholder="What would you like to say?"></textarea>
+                    <div class="form-options">
+                        <input type="submit" value="Send" id="send_message" />
+                    </div>
+                </form>
+            </div>
+
+            <div class="ios-only">
+                <a href="https://itunes.apple.com/ca/app/dm-anon-chat/id1219887468?mt=8" target="_blank">Create your own
+                    DM page</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/Javascript">
+        // jQuery(function($) {
+// $(document).on('focus','#message',function(e) {
+// $(".form-options").slideDown();
+// $(this).animate({height:"200px"});
+// });
+// $(document).on('click','.view-reply',function(e) {
+// e.preventDefault();
+// var elem = $(this);
+// if(!elem.hasClass("loading")) {
+// elem.addClass("loading");
+// elem.html("loading...");
+// var dataId = elem.attr("data-itemId");
+// $.ajax({
+// url: "/front-api/getPublicResponse/" + dataId,
+// success: function(msg) {
+// elem.parent().find(".reply").html(msg);
+// elem.hide();
+// },
+// error: function() {
+// elem.html("error loading reply");
+// }
+// });
+// }
+// });
+// });
+</script>
+
+    <!-- Scripts -->
+</body>
+
+</html>
+

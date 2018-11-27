@@ -1,2 +1,7 @@
 admin,5
 guest,1
+,
+dasd,0
+abc,0
+bcd,1
+cde,2
