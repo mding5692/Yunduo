@@ -1,4 +1,9 @@
-
+/**
+* Author: CS 3307 group 17
+* Removefile class
+* Function type: main
+* Return type: int
+**/
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
@@ -8,6 +13,7 @@
 using namespace std;
 using namespace cgicc;
 
+///This main function is used for removing files from the raspberry pi cloud 
 int main(){
   Cgicc formdata;
 /// html header for remove file	

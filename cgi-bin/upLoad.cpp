@@ -1,10 +1,18 @@
+/*
+ * @author CS3307-group17
+ * @brief:this class is used to user to upload his files such as media files, content files.
+ * @detail:the header and footer is desgined by html which is used to interact with the user
+ * when user clink the file button,the file instance will open the directory of file for users
+ * then users choose the file which he want to upload. then this file will be saved into 
+ * saveFile folder and print a message to user for upload successfully or not
+ * */
+
 #include <iostream>
 #include <vector>
 #include <string>
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
-
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>

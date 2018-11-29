@@ -1,3 +1,10 @@
+/*
+ *@author CS 3307- group 17
+ *@brief: users use their username and password to login own cloud server, the server will
+ *depand on users' permission to private them different functions
+ *@details: In this own cloud server, each user has a own permissin. 5 is the highest and 0 is *the lowest   
+ *
+ * */
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
