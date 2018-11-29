@@ -1,3 +1,14 @@
+#ifndef ADMIN_H
+#define ADMIN_H
+
+/*
+ *	@Author: CS 3307Group 17
+ *	@brief: Admin class for all admin functions
+ *	@detailed: admin user can call the functions to add and remove users
+ *	and set permission for users
+ *
+ * */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -15,3 +26,5 @@ class admin{
 		void removeuser(std::string name);
 		
 };
+
+#endif

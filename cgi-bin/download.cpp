@@ -3,6 +3,9 @@
  * @detailed: We implement in our main function, code that can access our saveFile directory, 
  * search for the files in there and then display them as downloadable on our html UI, 
  * if we can't find or open the saveFile directory, an error message saying Unable to open directory
+ * 
+ * The links are pressable on html and when pressed enable user to download a file
+ * The main function generates an html page with the download links
  */
 
 #include <iostream>

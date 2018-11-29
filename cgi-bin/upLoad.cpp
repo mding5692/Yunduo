@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <fstream>
+
 #include <cgicc/CgiDefs.h>
 #include <cgicc/Cgicc.h>
 #include <cgicc/HTTPHTMLHeader.h>
@@ -22,7 +23,7 @@ using namespace std;
 using namespace cgicc;
 
 int main() {
-
+	// CGICC class object declared to use form input
 	Cgicc cgi;
 	//html interface to interact with the user
 	cout << "Count-type:text/html\r\n\r\n";

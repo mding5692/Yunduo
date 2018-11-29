@@ -1,6 +1,10 @@
 /**
 * Author: CS 3307 group 17
-* Removefile class
+* Removefile
+* @brief: This function is used for removing files from the raspberry pi cloud 
+* @detailed: List the path and then the file is deleted when 
+* the form input is grabbed and processed
+* If file doesn't exist, then show error message
 * Function type: main
 * Return type: int
 **/
@@ -14,7 +18,7 @@ using namespace std;
 using namespace cgicc;
 
 ///This main function is used for removing files from the raspberry pi cloud 
-int main(){
+int main() {
   Cgicc formdata;
 /// html header for remove file	
   cout << "Content-type: text/html" << endl << endl;
@@ -32,7 +36,7 @@ int main(){
   if( remove(filePath.c_str()) != 0 ){
     cout << "<p>file does not exist</p>"; ///error message if file is not found
   }
-  else
+  else // Success message for when file is removed
     cout << "<p>file successfile deleted, refresh download page to see all the files on the cloud</p>"; ///print a message if file is found and deleted 
   cout << "</body></html>";
 

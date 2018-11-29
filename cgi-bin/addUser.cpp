@@ -1,9 +1,9 @@
 /***********************************************************
-* @author: Group 17
+* @author: CS 3307 Group 17
 * @brief: Processes new user info and adds a new user
-* @detailed: This file is for the addUser function. Press the button of
-*the addUser, enter the input of "user name", "password", and
-*"user permit" to create the new user.
+* @detailed: This file is for the addUser function. 
+* Enter input in the textboxes with names "user name", "password", and
+*"user permit" to create the new user and then press the submit button.
 * If user doesnt exist yet, creates new user and sets their permission level
 * If user already exists, then shows an error message
 *

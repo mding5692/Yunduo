@@ -1,7 +1,7 @@
 /*
- *	Author: Gourp 17
- *	Admin class for all admin functions
- *	admin user can call the functions to add and remove users
+ *	@Author: CS 3307 Group 17
+ *	@brief: Admin class for all admin functions
+ *	@detiailed admin user can call the functions to add and remove users
  *	and set permission for users
  *
  *
@@ -44,7 +44,7 @@ admin::~admin(){}
  *	This function will open both the login file and the permission file
  *	and add in the username, password and permission respectively.
  *
- *
+ *	@parameters: name of new user, password and permissions of a new user, in string value
  * */
 void admin::adduser(string name, string pw, string pmt){
 	ofstream outputFile;
@@ -61,7 +61,7 @@ void admin::adduser(string name, string pw, string pmt){
  *	This function will be called from the loginServer.
  *	This function will remove the permission detail and login detail from both files.
  *
- *
+ * @parameters: Username in string value of user to be deleted
  * */
 void admin::removeuser(string name){
 	string line;
@@ -71,7 +71,7 @@ void admin::removeuser(string name){
 	ofstream temp;
 	temp.open("/var/www/html/temp.txt");
 
-	/*Only save s lines of the text file that don't match the name we're deleting*/
+	/*Only save lines of the text file that don't match the name we're deleting*/
 	while (getline(fin,line)){
 		if (line.find(name) == string::npos){
 			temp << line << endl;

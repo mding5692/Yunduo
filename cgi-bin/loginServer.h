@@ -1,3 +1,14 @@
+#ifndef LOGIN_SERVER_H
+#define LOGIN_SERVER_H
+
+/*	Author: Group 17
+ *	@brief: This class includes all login related functions.
+ *	
+ *	@Detailed: Two types of users: admin and normal user are using this loginServer
+ *	to check the password and permission when they are logging in to the system
+ *
+ * */
+
 #include <iostream>
 #include <unordered_map>
 #include <string>
@@ -19,3 +30,4 @@ class loginServer{
 
 	};
 
+#endif

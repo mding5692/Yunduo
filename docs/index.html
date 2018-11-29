@@ -23,7 +23,7 @@
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">CS3307 Project - Home Server
    </div>
-   <div id="projectbrief">GoogleCloud-likePersonalStorageServerbuiltonRaspberryPi,ApacheWebServerandC++</div>
+   <div id="projectbrief">Google Cloud-like Personal Storage Server built on Raspberry Pi, Apache Web Server and C++</div>
   </td>
  </tr>
  </tbody>
@@ -63,6 +63,25 @@ $(function() {
 <div class="title">CS3307 Project - Home Server Documentation</div>  </div>
 </div><!--header-->
 <div class="contents">
+  <p>Large parts of our code are not classes but using the built-in <a href="https://www.gnu.org/software/cgicc/index.html">CGICC</a> library on our Apache Web Server to implement a C++ web app to enable file upload and download. <br>
+    We do implement our own classes in terms of identifying users and authenticating users that can be found in the class list</p>
+  <p>However large parts of our code are implementation and .cpp files which are compiled into .cgi files so it can be run on the web</p>
+  <p><b>To better understand our code aside from the classes, each of the important .cpp files are shown below:<b></b></p>
+  <a href="../cgi-bin/login.cpp">Login implementation</a>
+  <br>
+  <a href="../cgi-bin/addUser.cpp">Adding user implementation</a>
+  <br>
+  <a href="../cgi-bin/removeUser.cpp">Removing user implementation</a>
+  <br>
+  <a href="../cgi-bin/upLoad.cpp">Uploading file implementation</a>
+  <br>
+  <a href="../cgi-bin/download.cpp">Download implementation, allows the removal of files</a>
+  <br>
+  <a href="../cgi-bin/downloadnodelete.cpp">Download implementation without removing file option</a>
+  <br>
+  <a href="../cgi-bin/removefile.cpp">Removing file implementation</a>
+  <br>
+  <p>Each of the above is compiled into a .cgi file with the same name, .cgi files aren't readable</p>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
